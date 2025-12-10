@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Food, Culture & Cuisine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            color: #2c1810;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #c9184a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40" opacity="0.1">🌶️</text></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #fff5e6;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .video-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+            animation: scaleIn 0.8s ease 0.5s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #ff6b35;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+            border-top-color: #f7931e;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.4s;
+            border-top-color: #c9184a;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #c9184a;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .spice-border {
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #c9184a, #f7931e, #ff6b35);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #2c1810 0%, #5c3d2e 100%);
+            color: #fff5e6;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons span {
+            font-size: 1.5em;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icons span:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .video-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🇮🇳 Indian Food & Culture 🇮🇳</h1>
+        <p>Discover the Rich Heritage of Indian Cuisine</p>
+    </div>
+
+    <div class="container">
+        <div class="video-section">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #c9184a; font-size: 2em;">Watch Our Video</h2>
+            <div class="video-wrapper">
+                <div class="video-placeholder">
+                </div>
+                <video controls style="width: 100%; border-radius: 15px;">
+                    <source src="Cuisine of.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <div class="spice-border"></div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🍛</div>
+                <h3>Authentic Recipes</h3>
+                <p>Explore traditional recipes passed down through generations, from aromatic biryanis to flavorful curries that tell stories of India's diverse regions.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎭</div>
+                <h3>Cultural Heritage</h3>
+                <p>Discover the deep connection between food and culture in India, where every dish celebrates festivals, traditions, and the warmth of family gatherings.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌶️</div>
+                <h3>Spice Stories</h3>
+                <p>Journey through India's legendary spice routes and learn how these aromatic treasures have shaped cuisines worldwide for centuries.</p>
+            </div>
+        </div>
+
+        <div class="spice-border"></div>
+
+        <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+            <h2 style="color: #c9184a; margin-bottom: 20px;">About This Journey</h2>
+            <p style="line-height: 1.8; color: #666; max-width: 800px; margin: 0 auto;">
+                Indian cuisine is more than just food—it's a celebration of life, community, and tradition. 
+                From the bustling streets of Delhi to the coastal kitchens of Kerala, each region offers 
+                its own unique flavors and cooking techniques. Join us as we explore the incredible diversity 
+                and rich heritage that makes Indian food truly extraordinary.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="font-size: 1.2em; margin-bottom: 15px;">✨ Experience the Magic of Indian Cuisine ✨</p>
+        <p>Share this journey with your friends and family</p>
+        <div class="social-icons">
+            <span title="Share on Facebook">📘</span>
+            <span title="Share on Twitter">🐦</span>
+            <span title="Share on Instagram">📷</span>
+            <span title="Share on WhatsApp">💬</span>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">Made with ❤️ and lots of spices</p>
+    </div>
+</body>
+</html>
